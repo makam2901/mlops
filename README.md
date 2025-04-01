@@ -1,2 +1,2 @@
-# mlops
-This repo is manage all content and assignments for the ML OPs course.
+#ML Operations
+This repository will be used to manage all the course content and develop models & flows.
