@@ -4,7 +4,8 @@ labs/mlruns/
 models/
 
 # data
-data/
+data/images/
+data/save_data/
 
 # Environment
 .env
