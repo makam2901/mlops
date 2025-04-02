@@ -46,12 +46,16 @@ mlops/
 │   ├── processed_test_data.csv
 │   ├── processed_train_data.csv
 │── experiments/
+│   │── mlruns
+│   │── mlflow.db
 │── labs/
-│── mlruns/
-│   ├── ~/Academics/Spring_2...
+│   │── mlruns/
+│   ├── Lab_1_development...
 │   ├── Lab_2_exp_tracking...
 │   ├── Lab_3_data_version...
 │── models/
+│   │── lab2_best_model.pkl
+│   │── model.pkl
 │── src/
 │   ├── __pycache__/
 │   ├── create_features_w_params.py
@@ -66,5 +70,5 @@ mlops/
 │── README.md
 │── requirements.txt
 ```
-
+Note: Non-Important ones are not shown
 
