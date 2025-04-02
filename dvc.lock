@@ -33,3 +33,41 @@ stages:
       hash: md5
       md5: adf63b6ce20f7ee74f63d5dabb325226
       size: 10829967
+  lab3:
+    cmd: python src/preprocessing.py
+    deps:
+    - path: data/heart-disease.csv
+      hash: md5
+      md5: 218d45e9e1deb2408bf2e2ba7e4361fb
+      size: 18487
+    - path: src/preprocessing.py
+      hash: md5
+      md5: 88521302f88dd52e56b8670c4b733964
+      size: 3062
+    params:
+      params.yaml:
+        new_data.columns:
+        - age
+        - sex
+        - cp
+        - trestbps
+        - restecg
+        - thalach
+        - exang
+        - oldpeak
+        - slope
+        - ca
+        - thal
+        - target
+        new_data.data_path: data/heart-disease.csv
+        new_data.impute_strategy: mean
+        new_data.random_seed: 43
+    outs:
+    - path: data/lab3_test_data.csv
+      hash: md5
+      md5: 3ec4bdff5e1a7fd962039044a5298463
+      size: 3635
+    - path: data/lab3_train_data.csv
+      hash: md5
+      md5: d245d1c71fa745c180147adde930e098
+      size: 78866

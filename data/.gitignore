@@ -3,3 +3,6 @@
 /pipeline.pkl
 /processed_train_data.csv
 /processed_test_data.csv
+/heart-disease.csv
+/lab3_train_data.csv
+/lab3_test_data.csv
