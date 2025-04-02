@@ -2,15 +2,15 @@
 This repository will be used to manage all the course content and develop models & flows.
 
 Following topics will be covered:
-• Requirements gathering and system design
-• Experiment tracking
-• Registering artifacts
-• Data versioning and quality
-• Orchestration
-• Infrastructure as code
-• CI/CD/CT
-• Model serving
-• Model and operational monitoring
+- Requirements gathering and system design
+- Experiment tracking
+- Registering artifacts
+- Data versioning and quality
+- Orchestration
+- Infrastructure as code
+- CI/CD/CT
+- Model serving
+- Model and operational monitoring
 
 _**Current Workflow:**_
 
