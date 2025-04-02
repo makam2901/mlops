@@ -12,7 +12,7 @@ Following topics will be covered:
 • Model serving
 • Model and operational monitoring
 
-Current Workflow:
+_**Current Workflow:**_
 
 - **Lab 1: Set up and Organization**
   
