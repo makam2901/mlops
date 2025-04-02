@@ -2,3 +2,8 @@ features:
     chi2percentile: 50
     train_path: data/adult.data  
     test_path: data/adult.test
+new_data:
+    data_path: data/heart-disease.csv
+    impute_strategy: mean
+    columns: ["age", "sex", "cp", "trestbps", "restecg", "thalach", "exang", "oldpeak", "slope", "ca", "thal", "target"]
+    random_seed: 43

@@ -13,3 +13,17 @@ stages:
       - features.chi2percentile
       - features.train_path
       - features.test_path
+  
+  lab3:
+    cmd: python src/preprocessing.py
+    deps: 
+      - data/heart-disease.csv
+      - src/preprocessing.py
+    outs:
+      - data/lab3_train_data.csv
+      - data/lab3_test_data.csv
+    params:
+      - new_data.data_path
+      - new_data.impute_strategy
+      - new_data.columns
+      - new_data.random_seed
