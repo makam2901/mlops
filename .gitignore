@@ -6,6 +6,10 @@ models/
 # data
 data/images/
 data/save_data/
+data/
+*.csv
+*.pkl
+*.names
 
 # Environment
 .env
