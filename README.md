@@ -70,5 +70,5 @@ mlops/
 │── README.md
 │── requirements.txt
 ```
-Note: Non-Important ones are not shown
+Note: Non-Significant ones are not shown
 
