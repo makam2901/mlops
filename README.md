@@ -26,49 +26,31 @@ _**Current Workflow:**_
   
   The goal in this lab is to become familiar with the importance of keeping track of different versions of your data sets. Although we will use DVC in this lab, we are **not** trying to learn all we can about it. DVC has too much functionality for us to learn in a single lab.
 
+- **Lab 4: Containerization and Orchestration**
+
+  The goal of this lab is to get a little practice with creating Docker images and running containers, and then deploying those images in a kubernetes cluster on our laptops using minikube and kubectl.
+
 _**Current Directory (Local)**_:
 ```
 mlops/
-│── .dvc/
-│── data/
-│   ├── images/
-│   ├── save_data/
-│   ├── .gitignore
-│   ├── adult.data
-│   ├── adult.data.dvc
-│   ├── adult.test
-│   ├── adult.test.dvc
-│   ├── heart-disease.csv
-│   ├── heart-disease.csv.dvc
-│   ├── lab3_test_data.csv
-│   ├── lab3_train_data.csv
-│   ├── pipeline.pkl
-│   ├── processed_test_data.csv
-│   ├── processed_train_data.csv
-│── experiments/
-│   │── mlruns
-│   │── mlflow.db
-│── labs/
-│   │── mlruns/
-│   ├── Lab_1_development...
-│   ├── Lab_2_exp_tracking...
-│   ├── Lab_3_data_version...
-│── models/
-│   │── lab2_best_model.pkl
-│   │── model.pkl
-│── src/
-│   ├── __pycache__/
-│   ├── create_features_w_params.py
-│   ├── create_features.py
-│   ├── hello_world.py
-│   ├── preprocessing.py
-│── .dvcignore
-│── .gitignore
-│── dvc.lock
-│── dvc.yaml
-│── params.yaml
-│── README.md
-│── requirements.txt
+├── .dvc/
+├── app/
+├── data/
+├── experiments/
+├── homeworks/
+│   ├── Homework 1 - Part 1.pdf
+│   └── Homework 1 - Part 2.pdf
+├── labs/
+├── mlflow_test/
+├── models/
+├── src/
+├── .dvcignore
+├── .gitignore
+├── dvc.lock
+├── dvc.yaml
+├── params.yaml
+├── README.md
+└── requirements.txt
 ```
 Note: Non-Significant ones are not shown
 
