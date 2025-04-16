@@ -11,12 +11,14 @@ class RandomForestPredictFlow(FlowSpec):
 
     @step
     def start(self):
+        # Process input
         self.features = np.array(self.vector).reshape(1, -1)
         print("Received input vector:", self.features)
         self.next(self.load_model)
 
     @step
     def load_model(self):
+        # Load model from registry
         tracking_dir = os.path.abspath("../labs/mlruns")
         mlflow.set_tracking_uri(f"file://{tracking_dir}")
         client = MlflowClient()
@@ -33,6 +35,7 @@ class RandomForestPredictFlow(FlowSpec):
 
     @step
     def predict(self):
+        # Generate prediction
         self.prediction = self.model.predict(self.features)[0]
         print(f"Predicted class: {self.prediction}")
         self.next(self.end)

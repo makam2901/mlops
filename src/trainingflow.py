@@ -6,6 +6,7 @@ class RandomForestTrainFlow(FlowSpec):
 
     @step
     def start(self):
+        # Preprocess the data
         from preprocessing import load_data, prepare_data
 
         data = load_data(self.data_path)
@@ -21,6 +22,7 @@ class RandomForestTrainFlow(FlowSpec):
 
     @step
     def train_all(self):
+        # RUn experiments on ML Flow
         import mlflow
         import mlflow.sklearn
         from sklearn.ensemble import RandomForestClassifier
@@ -86,6 +88,7 @@ class RandomForestTrainFlow(FlowSpec):
 
     @step
     def register_best(self):
+        # Register the best model
         import mlflow
         import mlflow.sklearn
         import os
@@ -106,9 +109,10 @@ class RandomForestTrainFlow(FlowSpec):
 
     @step
     def end(self):
+        # Print Results
         print("Training and registration completed.")
         print(f"Best Test Accuracy: {self.best_score:.4f}")
         print(f"Registered Run ID: {self.best_run_id}")
 
-if __name__ == '__main__':
+if __name__ == '__main__':#
     RandomForestTrainFlow()
