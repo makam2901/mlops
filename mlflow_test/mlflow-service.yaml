@@ -1,4 +1,4 @@
-wapiVersion: v1
+apiVersion: v1
 kind: Service
 metadata:
   name: mlflow-service
@@ -10,4 +10,4 @@ spec:
   - protocol: TCP
     port: 5000
     targetPort: 5000
-    nodePort: 30000  # This is the port you will use to access MLflow
+    nodePort: 30000
