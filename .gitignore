@@ -2,6 +2,7 @@
 experiments/
 labs/mlruns/
 models/
+src/.metaflow
 
 # data
 data/images/
