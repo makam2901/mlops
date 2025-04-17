@@ -37,50 +37,51 @@ gcloud artifacts repositories create mlflow-gcp \
 -------------------------------------------------------------------------------
 ## Service Account
 gcloud iam service-accounts create makam-mlflow
+<get project name using this>
 gcloud config get-value project
 
 -------------------------------------------------------------------------------
 ## Roles
-gcloud projects add-iam-policy-binding msds603-mlops \
---member='serviceAccount:makam-mlflow@msds603-mlops.iam.gserviceaccount.com' \
+gcloud projects add-iam-policy-binding msds603-gcp \
+--member='serviceAccount:makam-mlflow@msds603-gcp.iam.gserviceaccount.com' \
 --role='roles/cloudsql.editor'
 
-gcloud projects add-iam-policy-binding msds603-mlops \
---member='serviceAccount:makam-mlflow@msds603-mlops.iam.gserviceaccount.com' \
+gcloud projects add-iam-policy-binding msds603-gcp \
+--member='serviceAccount:makam-mlflow@msds603-gcp.iam.gserviceaccount.com' \
 --role='roles/storage.objectAdmin'
 
-gcloud projects add-iam-policy-binding msds603-mlops \
---member='serviceAccount:makam-mlflow@msds603-mlops.iam.gserviceaccount.com' \
+gcloud projects add-iam-policy-binding msds603-gcp \
+--member='serviceAccount:makam-mlflow@msds603-gcp.iam.gserviceaccount.com' \
 --role='roles/secretmanager.secretAccessor'
 
-gcloud projects add-iam-policy-binding msds603-mlops \
---member='serviceAccount:makam-mlflow@msds603-mlops.iam.gserviceaccount.com' \
+gcloud projects add-iam-policy-binding msds603-gcp \
+--member='serviceAccount:makam-mlflow@msds603-gcp.iam.gserviceaccount.com' \
 --role='roles/artifactregistry.admin'
 
-gcloud projects add-iam-policy-binding msds603-mlops \
---member='serviceAccount:makam-mlflow@msds603-mlops.iam.gserviceaccount.com' \
+gcloud projects add-iam-policy-binding msds603-gcp \
+--member='serviceAccount:makam-mlflow@msds603-gcp.iam.gserviceaccount.com' \
 --role='roles/clouddeploy.serviceAgent'
 
-gcloud projects add-iam-policy-binding msds603-mlops \
---member='serviceAccount:makam-mlflow@msds603-mlops.iam.gserviceaccount.com' \
+gcloud projects add-iam-policy-binding msds603-gcp \
+--member='serviceAccount:makam-mlflow@msds603-gcp.iam.gserviceaccount.com' \
 --role='roles/cloudfunctions.admin'
 
 -------------------------------------------------------------------------------
 ## Secrets
 ### Service Account
 gcloud iam service-accounts keys create sa-private-key.json \
---iam-account=makam-mlflow@msds603-mlops.iam.gserviceaccount.com
+--iam-account=makam-mlflow@msds603-gcp.iam.gserviceaccount.com
 
 gcloud secrets create access_keys --data-file=sa-private-key.json
 
     ----------------------------------------------------------------------
 ### SQL Instance
 gcloud sql instances describe mlflow-gcp
-<get the primary IP address, ex: 35.236.27.203>
+<get the primary IP address, ex: 34.102.57.177>
 
 gcloud secrets create database_url
 
-echo -n "postgresql://makam2901:life-is-tough@35.236.27.203/mlflow-runs" | \
+echo -n "postgresql://makam2901:life-is-tough@34.102.57.177/mlflow-runs" | \
     gcloud secrets versions add database_url --data-file=-
 
     ----------------------------------------------------------------------
@@ -99,9 +100,9 @@ echo -n "gs://mlflow-gcp-15032025/mlruns" | \
 gcloud auth configure-docker us-west2-docker.pkg.dev
 
 docker build --platform linux/amd64 -t \
-"us-west2-docker.pkg.dev/msds603-mlops/mlflow-gcp/mlflow:v1" .
+"us-west2-docker.pkg.dev/msds603-gcp/mlflow-gcp/mlflow:v1" .
 
-docker push "us-west2-docker.pkg.dev/msds603-mlops/mlflow-gcp/mlflow:v1"
+docker push "us-west2-docker.pkg.dev/msds603-gcp/mlflow-gcp/mlflow:v1"
 
 -------------------------------------------------------------------------------
 ## Enable Services
@@ -113,7 +114,7 @@ gcloud services enable run.googleapis.com
 ## Cloud Run 
 
 gcloud run deploy "mlflow-run" \
-          --image "us-west2-docker.pkg.dev/msds603-mlops/mlflow-gcp/mlflow:v1" \
+          --image "us-west2-docker.pkg.dev/msds603-gcp/mlflow-gcp/mlflow:v1" \
           --region "us-west2" \
           --service-account makam-mlflow \
           --update-secrets=/secrets/credentials=access_keys:latest \
@@ -136,10 +137,10 @@ gsutil rm -r gs://mlflow-gcp-15032025
 gcloud sql instances delete mlflow-gcp
 gcloud secrets delete database_url
 gcloud secrets delete bucket_url
-gcloud iam service-accounts delete makam-mlflow@msds603-mlops.iam.gserviceaccount.com
+gcloud iam service-accounts delete makam-mlflow@msds603-gcp.iam.gserviceaccount.com
 gcloud artifacts repositories delete mlflow-gcp --location=us-west2
 
 -- 
-gcloud projects delete msds603-mlops
+gcloud projects delete msds603-gcp
 
 
