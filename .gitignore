@@ -20,6 +20,9 @@ venv/
 # Files
 homeworks/
 
+# Secrets
+mlflow_gcp/sa-private-key.json
+
 # Python
 __pycache__/
 *.py[cod]
