@@ -22,6 +22,7 @@ homeworks/
 
 # Secrets
 mlflow_gcp/sa-private-key.json
+mlflow_gcp/gcp_commands.txt
 
 # Python
 __pycache__/
