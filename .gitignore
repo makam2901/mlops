@@ -3,10 +3,13 @@ experiments/
 labs/mlruns/
 models/
 src/.metaflow
+.metaflow/
+metaflow-tools/
 
 # data
 data/images/
 data/save_data/
+*.png
 
 # Environment
 .env
@@ -22,7 +25,6 @@ homeworks/
 
 # Secrets
 mlflow_gcp/sa-private-key.json
-mlflow_gcp/gcp_commands.txt
 
 # Python
 __pycache__/
