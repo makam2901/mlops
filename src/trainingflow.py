@@ -33,6 +33,8 @@ class RandomForestTrainFlow(FlowSpec):
         # MLflow setup (local)
         tracking_dir = os.path.abspath("../labs/mlruns")
         mlflow.set_tracking_uri(f"file://{tracking_dir}")
+        # mlflow.set_tracking_uri("https://mlflow-run-355954672506.us-west2.run.app")
+        # mlflow.set_experiment("rf-mlflow-gcp")
         mlflow.set_experiment("metaflow-local")
 
         # Define search space
@@ -95,6 +97,9 @@ class RandomForestTrainFlow(FlowSpec):
 
         tracking_dir = os.path.abspath("../labs/mlruns")
         mlflow.set_tracking_uri(f"file://{tracking_dir}")
+        # mlflow.set_experiment("metaflow-local")
+        # mlflow.set_tracking_uri("https://mlflow-run-355954672506.us-west2.run.app")
+        # mlflow.set_experiment("rf-mlflow-gcp")
         mlflow.set_experiment("metaflow-local")
 
         with mlflow.start_run(run_id=self.best_run_id):
