@@ -30,17 +30,31 @@ _**Current Workflow:**_
 
   The goal of this lab is to get a little practice with creating Docker images and running containers, and then deploying those images in a kubernetes cluster on our laptops using minikube and kubectl.
 
+- **Lab 5: Experiment Tracking with MLFlow (GCP)**
+
+The goal of this lab is to get MLFlow running in GCP. Using MLFlow locally on our laptops is useful only for classroom assignments and small personal/work projects. In a team environment, where results need to be shared with multiple data scientists, or where multiple data scientists are working on multiple projects, MLFlow should be set up so that all team members can access it.
+
+- **Lab 6: ML Workflows using Metaflow (Local)**
+
+The goal in this lab is to create two flows, one for training our model (using the same dataset we selected for the previous MLFlow labs), and one for model scoring (sometimes called inference), and run these flows locally. We will likely modify our training flow later when we move Metaflow to GCP, and our scoring flow later when we get to the model deployment section of the course. We will also integrate MLFlow model registration with our flow.
+
+- **Lab 7: ML Workflows using Metaflow (GCP)**
+
+In this lab we will set up a scalable machine learning training pipeline using Metaflow and GCP and then test our ML training pipeline code from the previous lab.
+
+
 _**Current Directory (Local)**_:
 ```
 mlops/
 ├── .dvc/
+├── .metaflow/
 ├── app/
 ├── data/
 ├── experiments/
 ├── homeworks/
-│   ├── Homework 1 - Part 1.pdf
-│   └── Homework 1 - Part 2.pdf
 ├── labs/
+├── metaflow_gcp/
+├── mlflow_gcp/
 ├── mlflow_test/
 ├── models/
 ├── src/
@@ -52,5 +66,4 @@ mlops/
 ├── README.md
 └── requirements.txt
 ```
-Note: Non-Significant ones are not shown
 
