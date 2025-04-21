@@ -25,10 +25,11 @@ class RandomForestGCPPredictFlow(FlowSpec):
     @catch(var="load_model_error")
     @step
     def load_model(self):
-        tracking_dir = os.path.abspath("../labs/mlruns")
-        mlflow.set_tracking_uri(f"file://{tracking_dir}")
+        mlflow.set_tracking_uri("https://mlflow-run-259594885820.us-west2.run.app")
+        mlflow.set_experiment("metaflow-gcp-resources-kubernetes")
+
         client = MlflowClient()
-        model_name = "best-rf-model"
+        model_name = "best-rf-model-gcp"
         versions = client.get_latest_versions(model_name, stages=[])
         latest_version = max(versions, key=lambda v: int(v.version))
         self.model = mlflow.sklearn.load_model(f"models:/{model_name}/{latest_version.version}")
