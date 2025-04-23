@@ -119,7 +119,7 @@ gcloud container clusters get-credentials gke-metaflow-default --region=us-west2
 ```
 
 ## Step 3: Configure Metaflow
-- Copy `config.json` to `~/.metaflowconfig/config.json`
+- Copy `config.json` to `~/.metaflowconfig/config.json`. Create the folder if not available.
 ```bash
 cp config.json ~/.metaflowconfig/config.json
 ```
