@@ -119,7 +119,7 @@ gcloud container clusters get-credentials gke-metaflow-default --region=us-west2
 ```
 
 ## Step 3: Configure Metaflow
-- Copy `config.json` to `~/.metaflowconfig/config.json`
+- Copy `config.json` to `~/.metaflowconfig/config.json`. Create the folder if not available.
 ```bash
 cp config.json ~/.metaflowconfig/config.json
 ```
@@ -140,8 +140,12 @@ Edit based on requirement
     "METAFLOW_SERVICE_URL":"http://127.0.0.1:8080/"
 }
 ```
+## Step 4: Install GKE
+```bash
+gcloud components install gke-gcloud-auth-plugin
+```
 
-## Step 4: Port Forwarding
+## Step 5: Port Forwarding
 - option 1 - run kubectl's manually
 ```bash
 kubectl port-forward deployment/metadata-service 8080:8080
@@ -156,13 +160,10 @@ kubectl port-forward -n argo service/argo-events-webhook-eventsource-svc 12000:1
 python forward_metaflow_ports.py --include-argo
 ```
 
-## Step 5: Install GKE
 - Press Command + T in terminal to open terminal in same $pwd
 - `conda activate mlops`
 - check if the gcloud project is correct `gcloud config get-value project`
-```bash
-gcloud components install gke-gcloud-auth-plugin
-```
+
 
 # Conda Dependencies
 - open `~/.zprofile` by using `vim` and add the below line
