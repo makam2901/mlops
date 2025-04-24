@@ -9,6 +9,7 @@ metaflow-tools/
 # data
 data/images/
 data/save_data/
+reddit/*.csv
 
 # Environment
 .env
